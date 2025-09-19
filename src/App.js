@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Calcu from "./Componentes/Calculadora"
 
 function App() {
   return (
     <div className="App">
+      <Calcu></Calcu>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
