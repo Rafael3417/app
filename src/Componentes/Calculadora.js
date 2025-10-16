@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Botom from "./Boton"
+import "./Calculadora.css";
 
 const Contador = () => {
     const [contador, setContador] = useState("");
@@ -13,11 +14,9 @@ const Contador = () => {
         setContador(contador + num)
     }
 
-    function seleccionarOperador(op) {
-        setContador(contador);
+     function Aumentar() {
+        setContador(String(Number(contador || "0") + 1));
     }
-
-
 
     function seleccionarOperador(op) {
         setValorAnterior(contador);
@@ -25,17 +24,36 @@ const Contador = () => {
         setContador("");
     }
 
-    function igual(){
-        if(operador === "+")
-            seleccionarOperador
+      function igual() {
+        const anterior = Number(valorAnterior);
+        const actual = Number(contador);
+        let resultado = 0;
+
+        if (operador === "+") {
+            resultado = anterior + actual;
+        } else if (operador === "-") {
+            resultado = anterior - actual;
+        } else if (operador === "*") {
+            resultado = anterior * actual;
+        } else if (operador === "/") {
+            resultado = actual !== 0 ? anterior / actual : "Error";
+        }
+
+        setContador(String(resultado));
+        setValorAnterior("");
+        setOperador("");
+    }
+
+    function limpiar() {
+        setContador("");
+        setValorAnterior("");
+        setOperador("");
     }
 
     return (
         <div>
-            <label>Contador:{contador}</label>
+            <label>{contador}</label>
             <br />
-            <button onClick={Aumentar}>Aumentar</button>
-            <Botom onClick={() => imputNumber(0)}> 0 </Botom>
             <Botom onClick={() => imputNumber(1)}> 1 </Botom>
             <Botom onClick={() => imputNumber(2)}> 2 </Botom>
             <Botom onClick={() => imputNumber(3)}> 3 </Botom>
@@ -45,9 +63,13 @@ const Contador = () => {
             <Botom onClick={() => imputNumber(7)}> 7 </Botom>
             <Botom onClick={() => imputNumber(8)}> 8 </Botom>
             <Botom onClick={() => imputNumber(9)}> 9 </Botom>
+            <Botom onClick={() => imputNumber(0)}> 0 </Botom>
             <Botom onClick={() => seleccionarOperador("+")}> + </Botom>
-            <Botom onClick={() => seleccionarOperador("=")}> = </Botom>
-            <Botom onClick={() => seleccionarOperador("+")}> - </Botom>
+            <Botom onClick={() => seleccionarOperador("-")}> - </Botom>
+            <Botom onClick={() => seleccionarOperador("*")}> * </Botom>
+            <Botom onClick={() => seleccionarOperador("/")}> / </Botom>
+            <Botom onClick={igual}> = </Botom>
+            <Botom onClick={limpiar}> C </Botom>
         </div>
     );
 };

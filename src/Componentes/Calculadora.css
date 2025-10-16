@@ -1,0 +1,61 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+div {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+label {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  display: block;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Botones con estilo neón e íconos */
+.boton {
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 22%;
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #ab47bc, 0 0 20px #ab47bc;
+}
+
+.boton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ce93d8, 0 0 30px #ce93d8;
+}
+
+.boton:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 8px #ba68c8;
+}
+
+
