@@ -10,7 +10,7 @@ function PokemonDetail() {
     const { name, url } = location.state || {};
 
     useEffect(() => {
-        if (!url) {
+        if (url) {
             const fetchPokemonDetails = async () => {
                 try{
                     const response = await fetch(url);
@@ -45,7 +45,7 @@ function PokemonDetail() {
             {pokemonData && (
                 <div>
                     <img
-                    src={pokemonData.sprites.from_default}
+                    src={pokemonData.sprites.front_default}
                     alt={name}
                     style={{ width: "200px" }}
                     />
