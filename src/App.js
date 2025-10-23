@@ -1,16 +1,17 @@
-import React from "react";
-import Tableta from "./Pokedex";
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Table from "./TableNew";
+import PokemonDetail from "./PokemonDetail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Pokedex</h1>
-        <Tableta />
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Table />} />
+        <Route path="/pokemon/:name" element={<PokemonDetail />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
